@@ -63,7 +63,13 @@ if (($lang = Internationalization::getCurrentLanguage())
                     && !$thisclient->isGuest()) {
                  echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
                  ?>
+             <?php
+                if (!$thisclient->isAuthenticatingWithLdap()) {
+                 ?>
                 <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> |
+             <?php
+                }
+                 ?>
                 <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a> -
                 <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a>
             <?php

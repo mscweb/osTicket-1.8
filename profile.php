@@ -21,6 +21,10 @@ require 'secure.inc.php';
 require_once 'class.user.php';
 $user = User::lookup($thisclient->getId());
 
+if ($thisclient->isAuthenticatingWithLdap()) {
+    die('Access denied');
+}
+
 if ($user && $_POST) {
     $errors = array();
     if ($acct = $thisclient->getAccount()) {

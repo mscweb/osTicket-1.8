@@ -286,6 +286,12 @@ class  EndUser extends AuthenticatedUser {
         return $cached;
     }
 
+    function isAuthenticatingWithLdap() {
+        $acct = $this->getAccount();
+
+        return ('ldap.client' === $acct->get('backend'));
+    }
+
     private function getStats() {
 
         $where = ' WHERE ticket.user_id = '.db_input($this->getId())

@@ -50,6 +50,10 @@ if ($thisclient && $thisclient->isGuest()
                     <td><?php echo $ticket->getStatus(); ?></td>
                 </tr>
                 <tr>
+                    <th width="100"><?php echo __('Help Topic');?>:</th>
+                    <td><?php echo Format::htmlchars($ticket->getHelpTopic()); ?></td>
+                </tr>
+                <tr>
                     <th><?php echo __('Department');?>:</th>
                     <td><?php echo Format::htmlchars($dept instanceof Dept ? $dept->getName() : ''); ?></td>
                 </tr>
